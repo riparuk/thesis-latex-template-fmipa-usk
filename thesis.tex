@@ -1,0 +1,133 @@
+%
+% Template Laporan Skripsi/Thesis
+%
+% @author  Rifa Faruqi
+% @version 1.00
+%
+% Dokumen ini dibuat berdasarkan standar penulisan skripsi Fakultas MIPA, Universitas Syiah Kuala (USK).
+% Template ini dimodifikasi dari versi asli yang dibuat oleh Andreas Febrian dan Lia Sadita,
+% yang awalnya didasarkan pada standar IEEE dan konfigurasi LaTeX yang digunakan Fahrurrozi Rahman
+% untuk laporan skripsi di Universitas Indonesia (UI).
+%
+% Modifikasi ini disesuaikan dengan panduan terbaru dari Fakultas MIPA, USK.
+%
+%
+% Tipe dokumen adalah report dengan satu kolom. 
+%
+\documentclass[12pt, a4paper, onecolumn, oneside, final]{report}
+
+% Load konfigurasi LaTeX untuk tipe laporan thesis
+\usepackage{_internals/uithesis}
+
+
+% Daftar pemenggalan suku kata dan istilah dalam LaTeX
+\input{_internals/hype.indonesia}
+
+% Load konfigurasi khusus untuk laporan yang sedang dibuat
+\input{settings}
+% Daftar istilah yang mungkin perlu ditandai 
+\input{istilah}
+
+% Awal bagian penulisan laporan
+\begin{document}
+%
+% Sampul Laporan
+% \input{_internals/sampul}
+
+%
+% Gunakan penomeran romawi
+\pagenumbering{roman}
+\fancyhf{} % Bersihkan header dan footer terlebih dahulu
+\fancyfoot[C]{\thepage} % Nomor halaman di tengah bawah (bisa ganti posisi jika diperlukan)
+
+
+%
+% load halaman judul dalam
+\addChapter{Halaman Judul}
+\input{_internals/judul_dalam}
+
+% setelah bagian ini, halaman dihitung sebagai halaman ke 2
+\setcounter{page}{2}
+%
+\addChapter{Halaman Pengesahan}
+\input{src/00-front_matter/halaman_pengesahan}
+\thispagestyle{empty}   % Mematikan penomoran halaman
+%
+% load halaman orisinalitas 
+\addChapter{Pernyataan Bebas Plagiasi}
+\input{src/00-front_matter/pernyataan_bebas_pagiasi}
+\thispagestyle{empty}   % Mematikan penomoran halaman
+%
+\addChapter{Surat Pernyataan}
+\input{src/00-front_matter/surat_pernyataan}
+\thispagestyle{empty}   % Mematikan penomoran halaman
+%
+% 
+\addChapter{Abstrak/Abstract}
+\input{src/00-front_matter/abstrak}
+\input{src/00-front_matter/abstract}
+
+%
+\addChapter{Kata Pengantar}
+\input{src/00-front_matter/kata_pengantar}
+%
+%
+
+%
+% Daftar isi, gambar, dan tabel
+%
+% Atur jarak antar chapter sama seperti jarak antar section
+\disableboldchapterintoc
+\phantomsection
+\begin{singlespace}
+\tableofcontents
+\clearpage
+
+\phantomsection
+\listoffigures
+\clearpage
+
+\phantomsection
+\listoftables
+\clearpage
+\enableboldchapterintoc
+
+\end{singlespace}
+
+%
+% Gunakan penomeran Arab (1, 2, 3, ...) setelah bagian ini.
+%
+\pagenumbering{arabic} % Mengatur penomoran halaman ke format Arab
+\fancyhf{} % Bersihkan header dan footer
+\fancyfoot[R]{\thepage} % Nomor halaman di kanan bawah
+%
+%
+%
+\input{src/01-body/01-bab1}
+\input{src/01-body/02-bab2}
+\input{src/01-body/03-bab3}
+\input{src/01-body/04-bab4}
+\input{src/01-body/05-bab5}
+\input{src/01-body/06-bab6}
+\input{src/01-body/99-kesimpulan}
+
+%
+% Daftar Pustaka
+%\input{pustaka}
+
+% Alternatif manajemen daftar pustaka dengan \bibliography
+\begin{singlespace}
+    \bibliographystyle{apalike}
+    \bibliography{pustaka}
+\end{singlespace}
+
+%
+% Lampiran 
+%
+% \begin{appendix}
+% 	\input{_internals/markLampiran}
+% 	\setcounter{page}{2}\textbf{}
+% 	\input{src/99-back_matter/lampiran}
+% \end{appendix}
+
+\end{document}
