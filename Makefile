@@ -1,5 +1,4 @@
 # Tools
-LATEXMK = latexmk
 RM = rm -fr	
 
 # Project-specific settings
@@ -12,19 +11,16 @@ pdf: $(DOCNAME).pdf
 
 # Rules
 %.pdf: %.tex
-	$(LATEXMK) -synctex=1 -pdf -shell-escape -outdir=out -file-line-error $*
+	pdflatex -shell-escape $*.tex
+	pdflatex -shell-escape $*.tex
+	pdflatex -shell-escape $*.tex
 
 mostlyclean:
-	$(LATEXMK) -silent -outdir=out -c
-	$(RM) *.bbl
+	$(RM) ./*.bbl
 
 clean: mostlyclean
-	$(LATEXMK) -silent -outdir=out -C
-	$(RM) *.run.xml *.synctex.gz
-	$(RM) *.d
-	$(RM) out
+	$(RM) ./*.run.xml out/*.synctex.gz
+	$(RM) ./*.dvi ./*.log ./*.aux ./*.blg ./*.toc ./*.lof ./*.lot ./*.out ./*.bcf ./*.run.xml ./*.synctex.gz ./*.pdf
+	$(RM) ./_minted-$(DOCNAME)
 
 .PHONY: all clean doc mostlyclean pdf
-
-# Include auto-generated dependencies
--include *.d
