@@ -99,7 +99,7 @@
 % 
 % Digunakan untuk mengatur caption dalam dokumen.
 % 
-\usepackage[font=footnotesize,format=plain,labelfont=bf,up,textfont=up]{caption}
+% \usepackage[font=footnotesize,format=plain,labelfont=bf,up,textfont=up]{caption}
 
 % 
 % Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak 
@@ -149,7 +149,10 @@
   \floatplacement{table}{H}
 
 % Bibliography
-\usepackage{natbib}
+% \usepackage{natbib}
+\usepackage[backend=biber,style=apa,url=true]{biblatex}  % Menggunakan BibLaTeX
+\addbibresource{pustaka.bib}
+
 
 % Slanted fraction symbol
 \usepackage{nicefrac}

@@ -12,9 +12,10 @@ pdf: $(DOCNAME).pdf
 # Rules
 %.pdf: %.tex
 	pdflatex -shell-escape $*.tex
-	bibtex $*.aux
-	pdflatex -shell-escape $*.tex
-	pdflatex -shell-escape $*.tex
+	pdflatex -shell-escape $*.tex  # Run twice to ensure references are updated
+	biber $*  # Run biber on the basename of the file (e.g., thesis)
+	pdflatex -shell-escape $*.tex  # Run a third time to incorporate bibliography
+	pdflatex -shell-escape $*.tex  # Run a fourth time to ensure all references are correct
 
 mostlyclean:
 	$(RM) ./*.bbl
