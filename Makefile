@@ -12,6 +12,7 @@ pdf: $(DOCNAME).pdf
 # Rules
 %.pdf: %.tex
 	pdflatex -shell-escape $*.tex
+	bibtex $*.aux
 	pdflatex -shell-escape $*.tex
 	pdflatex -shell-escape $*.tex
 
