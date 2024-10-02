@@ -9,6 +9,12 @@ Jika ada ditemukan ketidaksesuaian format, anda bisa membuat `issue` atau/dan be
 
 ## Cara Menggunakan
 
+Untuk pengguna macOS, Anda perlu menginstal paket `pygments` terlebih dahulu. Anda dapat melakukannya dengan menggunakan Homebrew:
+
+```bash
+brew install pygments
+```
+
 Untuk mengkompilasi dokumen LaTeX dan menghasilkan file PDF, Anda dapat menggunakan perintah `make`:
 
 ```bash
