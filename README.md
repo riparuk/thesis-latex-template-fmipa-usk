@@ -5,6 +5,17 @@ Template ini dimodifikasi dari:
 - overleaf templates yang dibuat oleh Andreas Febrian dan Lia Sadita [here](https://www.overleaf.com/latex/templates/thesis-template-for-universitas-indonesia/brfkhqvmkzhv), yang awalnya didasarkan pada standar IEEE dan konfigurasi LaTeX untuk laporan skripsi di Universitas Indonesia (UI).
 - Halaman pengesahan, plagiasi, dll [dari](https://github.com/AbdulHafidh-AI/Template-Scratch).
 
+## Quick Guide
+
+Berikut adalah panduan singkat untuk menggunakan template ini:
+
+- **`thesis.tex`**: File utama. Anda dapat mengomentari atau meng-un-komentari bagian yang tidak perlu seperti bab dan lembaran, sesuaikan dengan kebutuhan Anda.
+- **`settings.tex`**: File konfigurasi untuk menjaga konsistensi beberapa nilai seperti nama penulis, pembimbing, judul, dan lain-lain.
+- **`pustaka.bib`**: Tempat untuk menaruh referensi.
+- **`assets/`**: Tambahkan gambar atau PDF di folder ini.
+- **`src/01-body/`**: Edit bagian bab (1-6) di folder ini.
+
+
 Jika ada ditemukan ketidaksesuaian format, anda bisa membuat `issue` atau/dan berkontribusi (feel free).
 
 ## Cara Menggunakan
