@@ -660,7 +660,7 @@
   \RequirePackage{color} 
 \fi
 \def\@makechapterhead#1{%
-  \vspace*{10\p@}%
+  % \vspace*{10\p@}%
   {\parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter%%%%% Fix for frontmatter, mainmatter, and backmatter 040920
@@ -698,7 +698,7 @@
 %%% End: To avoid problem with scrbook.cls (fncychap version 1.32)
 
 \def\@makeschapterhead#1{%
-  \vspace*{10\p@}%
+  % \vspace*{10\p@}%
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M

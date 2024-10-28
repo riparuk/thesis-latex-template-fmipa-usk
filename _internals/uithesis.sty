@@ -145,13 +145,16 @@
 % 
 % 
 \usepackage{float}
-  % \floatplacement{figure}{H}
-  % \floatplacement{table}{H}
+  \floatplacement{figure}{H}
+  \floatplacement{table}{H}
 
 % Bibliography
 % \usepackage{natbib}
 \usepackage[backend=biber,style=apa,url=true]{biblatex}  % Menggunakan BibLaTeX
 \addbibresource{pustaka.bib}
+
+\usepackage[table,xcdraw]{xcolor}  % Untuk warna pada tabel
+\usepackage{multirow}  % Untuk multirow pada tabel
 
 
 % Slanted fraction symbol
@@ -280,6 +283,10 @@
 }
 
 % \setlength{\footskip}{2cm} % Atur jarak footer menjadi 2 cm dari tepi bawah halaman
+% Mengatur jarak antara judul bab dan baris pertama atau subjudul
+
+\usepackage{titlesec}
+\titlespacing*{\chapter}{0pt}{0pt}{3\baselineskip}
 
 
 %-----------------------------------------------------------------------------%
