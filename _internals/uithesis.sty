@@ -70,7 +70,6 @@
 % 
 %  Agar tabel bisa menggunakan rowspan atau colspan. 
 % 
-\usepackage{multirow}
 
 %
 % Digunakan untuk memasukan gambar ke laporan. 
@@ -108,6 +107,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{bm}
+
+\usepackage{microtype} % untuk mengatur spasi pada paragraf
 
 % 
 % Membuat seluruh tulisan menjadi Times New Roman.
@@ -151,10 +152,19 @@
 % Bibliography
 % \usepackage{natbib}
 \usepackage[backend=biber,style=apa,url=true]{biblatex}  % Menggunakan BibLaTeX
+% Set jarak antar item dalam daftar pustaka
+\setlength{\bibitemsep}{0.25\baselineskip} % Menambah jarak antar item
+
+% Set jarak sebelum daftar pustaka dimulai
+% \def\bibsetup{
+%   \vskip 1.5em
+% }
+
 \addbibresource{pustaka.bib}
 
 \usepackage[table,xcdraw]{xcolor}  % Untuk warna pada tabel
 \usepackage{multirow}  % Untuk multirow pada tabel
+\usepackage{booktabs}
 
 
 % Slanted fraction symbol
@@ -256,12 +266,6 @@
 \addtocontents{lof}{~\hfill \textit{Halaman}\par}
 \addtocontents{lot}{~\hfill \textit{Halaman}\par}
 
-% Mengatur indentasi pada baris kedua dan seterusnya
-\usepackage{etoolbox}
-
-\renewcommand{\bibhang}{1.25cm} % Indentasi untuk baris kedua dan seterusnya
-
-
 % \captionsetup[figure]{labelfont={normalfont}, textfont={normalfont}} % Unbold caption gambar
 % \captionsetup[table]{labelfont={normalfont}, textfont={normalfont}} % Unbold caption tabel
 %
@@ -286,9 +290,46 @@
 % Mengatur jarak antara judul bab dan baris pertama atau subjudul
 
 \usepackage{titlesec}
-\titlespacing*{\chapter}{0pt}{0pt}{3\baselineskip}
+% \titlespacing*{\chapter}{0pt}{0pt}{3\baselineskip}
+
+% jarak antara judul section dan baris pertama paragraf 
+\titlespacing*{\section}{0pt}{1ex plus 0.5ex minus 0.5ex}{0.5ex}
+% jarak antara judul subsection dan baris pertama paragraf
+\titlespacing*{\subsection}{0pt}{3.5ex plus 0.5ex minus 0.5ex}{0.5ex}
+% jarak antara judul subsubsection dan baris pertama paragraf
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 0.5ex minus 0.5ex}{0.5ex}
+
+\usepackage{indentfirst} % Indentasi pada paragraf pertama
+
+\titleformat{\section}{\normalfont\bfseries\uppercase}{\thesection}{1.7em}{} % Untuk membuat section menjadi kapital tapi daftar isi tetap non kapital
+
+% Untuk subsection set saja jaraknya 1.5em (ga perlu buat kapital seperti section)
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.9em}{}
+
+% jarak antara chapter dan judul vertikal
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \large\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip -0.2cm
+    \fi
+    \interlinepenalty\@M
+    \large \bfseries #1\par\nobreak
+    \vskip 20\p@
+    }}
+
+\@addtoreset {equation}{chapter}
+\renewcommand\theequation
+  {\ifnum \c@chapter>\z@ \@arabic\c@chapter.\fi \@arabic\c@equation}
+\renewcommand \thefigure
+     {\ifnum \c@chapter>\z@ \@arabic\c@chapter.\fi \@arabic\c@figure}
+\renewcommand \thetable
+     {\ifnum \c@chapter>\z@ \@arabic\c@chapter.\fi \@arabic\c@table}
 
 
+\makeatother
 %-----------------------------------------------------------------------------%
 % Perintah Baru
 %-----------------------------------------------------------------------------%
@@ -380,7 +421,13 @@
 % Alias untuk perintah \LaTeX
 \newcommand{\latex}{\LaTeX}
 
+% Mengubah format bab menjadi angka Romawi
+\renewcommand{\thechapter}{\Roman{chapter}}  % Bab dalam format angka Romawi
 
+% Section dan Subsection tetap menggunakan angka Arab, dengan format bab.section
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}  % Section dalam format bab.section
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}  % Subsection dalam format bab.section.subsection
+\renewcommand{\thesubsubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}  % Subsubsection dalam format bab.section.subsection.subsubsection
 
 %-----------------------------------------------------------------------------%
 % Ubah Istilah Penulisan
