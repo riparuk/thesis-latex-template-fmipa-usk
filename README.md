@@ -18,7 +18,7 @@ Berikut adalah panduan singkat untuk menggunakan template ini:
 Template ini telah disesuaikan dengan standar penulisan skripsi Fakultas MIPA, Universitas Syiah Kuala (USK).
 - **`pustaka.bib`**: Tempat untuk menaruh referensi.
 - **`assets/`**: Tambahkan gambar atau PDF di folder ini.
-- **`src/01-body/`**: Edit bagian bab (1-6) di folder ini.
+- **`src/01-body/`**: Edit bagian bab (1-5) di folder ini.
 
 
 Jika ada ditemukan ketidaksesuaian format, anda bisa membuat `issue` atau/dan berkontribusi (feel free).
