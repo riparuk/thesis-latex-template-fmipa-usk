@@ -2,12 +2,12 @@
 RM = rm -fr	
 
 # Project-specific settings
-DOCNAME = thesis
+DOCNAMES = thesis seminar_hasil seminar_proposal sidang_skripsi
 
 # Targets
 all: doc
 doc: pdf
-pdf: $(DOCNAME).pdf
+pdf: $(DOCNAMES:=.pdf)
 
 # Rules
 %.pdf: %.tex
@@ -23,6 +23,6 @@ mostlyclean:
 clean: mostlyclean
 	$(RM) ./*.run.xml out/*.synctex.gz
 	$(RM) ./*.dvi ./*.log ./*.aux ./*.blg ./*.toc ./*.lof ./*.lot ./*.out ./*.bcf ./*.run.xml ./*.synctex.gz ./*.pdf
-	$(RM) ./_minted-$(DOCNAME)
+	$(RM) $(addprefix ./_minted-,$(DOCNAMES))
 
 .PHONY: all clean doc mostlyclean pdf

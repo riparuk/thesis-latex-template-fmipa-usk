@@ -25,12 +25,19 @@
 
 % Load konfigurasi khusus untuk laporan yang sedang dibuat
 \input{settings}
+
+% Tipe laporan, dapat berisi Skripsi, Tugas Akhir, Thesis, atau Disertasi
+\renewcommand{\type}{Tugas Akhir}
+% Tulis kembali tipe laporan, kali ini akan diubah menjadi huruf kapital
+\renewcommand{\Type}{TUGAS AKHIR}
+
 % Daftar istilah yang mungkin perlu ditandai 
 \input{istilah}
 
 % Awal bagian penulisan laporan
 \begin{document}
 %
+
 %
 % Gunakan penomeran romawi
 \pagenumbering{roman}
@@ -46,11 +53,7 @@
 % setelah bagian ini, halaman dihitung sebagai halaman ke 2
 \setcounter{page}{2}
 %
-% Untuk seminar proposal, uncomment bagian ini
-\addChapter{Halaman Pengesahan}
-\input{src/00-front_matter/halaman_pengesahan_proposal}
-\thispagestyle{empty}   % Mematikan penomoran halaman
-% 
+
 % -- Halaman Pengesahan untuk sidang
 \addChapter{Halaman Pengesahan}
 \input{src/00-front_matter/halaman_pengesahan}

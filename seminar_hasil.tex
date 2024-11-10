@@ -25,12 +25,21 @@
 
 % Load konfigurasi khusus untuk laporan yang sedang dibuat
 \input{settings}
+
+% Tipe laporan, dapat berisi Skripsi, Tugas Akhir, Thesis, atau Disertasi
+\renewcommand{\type}{Tugas Akhir}
+% Tulis kembali tipe laporan, kali ini akan diubah menjadi huruf kapital
+\renewcommand{\Type}{TUGAS AKHIR}
+
 % Daftar istilah yang mungkin perlu ditandai 
 \input{istilah}
 
 % Awal bagian penulisan laporan
 \begin{document}
 %
+% Sampul Laporan
+% \input{_internals/sampul}
+
 %
 % Gunakan penomeran romawi
 \pagenumbering{roman}
@@ -47,24 +56,24 @@
 \setcounter{page}{2}
 %
 % Untuk seminar proposal, uncomment bagian ini
-\addChapter{Halaman Pengesahan}
-\input{src/00-front_matter/halaman_pengesahan_proposal}
-\thispagestyle{empty}   % Mematikan penomoran halaman
+% \addChapter{Halaman Pengesahan}
+% \input{src/00-front_matter/halaman_pengesahan_proposal}
+% \thispagestyle{empty}   % Mematikan penomoran halaman
 % 
 % -- Halaman Pengesahan untuk sidang
-\addChapter{Halaman Pengesahan}
-\input{src/00-front_matter/halaman_pengesahan}
-\thispagestyle{empty}   % Mematikan penomoran halaman
+% \addChapter{Halaman Pengesahan}
+% \input{src/00-front_matter/halaman_pengesahan}
+% \thispagestyle{empty}   % Mematikan penomoran halaman
 
 % --- Surat pernyataan bebas plagiasi 
-\addChapter{Pernyataan Bebas Plagiasi}
-\input{src/00-front_matter/pernyataan_bebas_pagiasi}
-\thispagestyle{empty}   % Mematikan penomoran halaman
+% \addChapter{Pernyataan Bebas Plagiasi}
+% \input{src/00-front_matter/pernyataan_bebas_pagiasi}
+% \thispagestyle{empty}   % Mematikan penomoran halaman
 
 % --- Surat pernyataan
-\addChapter{Surat Pernyataan}
-\input{src/00-front_matter/surat_pernyataan}
-\thispagestyle{empty}   % Mematikan penomoran halaman
+% \addChapter{Surat Pernyataan}
+% \input{src/00-front_matter/surat_pernyataan}
+% \thispagestyle{empty}   % Mematikan penomoran halaman
 
 % --- Bagian Abstrak
 \addChapter{Abstrak/Abstract}
@@ -76,6 +85,7 @@
 \input{src/00-front_matter/kata_pengantar}
 %
 %
+
 %
 % Daftar isi, gambar, dan tabel
 %
@@ -87,11 +97,11 @@
 \clearpage
 
 \phantomsection
-\listoftables
+\listoftables   % Daftar tabel
 \clearpage
 
 \phantomsection
-\listoffigures
+\listoffigures  % Daftar gambar
 \clearpage
 
 \enableboldchapterintoc
@@ -107,11 +117,18 @@
 %
 %
 %
-\input{src/01-body/01-bab1}
-\input{src/01-body/02-bab2}
-\input{src/01-body/03-bab3}
-\input{src/01-body/04-bab4}
-\input{src/01-body/05-bab5}
+\input{src/01-body/01-bab1} % Pendahuluan
+\input{src/01-body/02-bab2} % Tinjauan Kepustakaan
+\input{src/01-body/03-bab3} % Metodologi Penelitian
+\input{src/01-body/04-bab4} % Hasil dan Pembahasan
+\input{src/01-body/05-bab5} % Kesimpulan dan Saran
+
+% \input{src/01-body/06-bab6}
+% \input{src/01-body/99-kesimpulan}
+
+%
+% Daftar Pustaka
+%\input{pustaka}
 
 % Alternatif manajemen daftar pustaka dengan \bibliography
 \begin{singlespace}
@@ -125,8 +142,8 @@
 % Lampiran 
 %
 \begin{appendix}
-	% \input{_internals/markLampiran} % Penggunaan ini hanya untuk menandai halaman LAMPIRAN, jika perlu
-	% \setcounter{page}{2}\textbf{} % Reset penomoran halaman jika perlu
+% 	% \input{_internals/markLampiran} % Penggunaan ini hanya untuk menandai halaman LAMPIRAN, jika perlu
+% 	% \setcounter{page}{2}\textbf{} % Reset penomoran halaman jika perlu
 	\input{src/99-back_matter/lampiran}
 \end{appendix}
 
