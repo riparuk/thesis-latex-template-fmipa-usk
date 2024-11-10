@@ -46,7 +46,7 @@ make hasil
 make skripsi
 ```
 
-Untuk membersihkan file yang dihasilkan dari kompilasi, Anda dapat menggunakan perintah `make clean` (akan menghapus termasuk .pdf):
+Untuk membersihkan file yang dihasilkan dari kompilasi, Anda dapat menggunakan perintah `make clean` (akan menghapus termasuk .pdf) sebelum melakukan `kompilasi`:
 
 ```bash
 make clean
