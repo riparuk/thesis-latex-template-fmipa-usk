@@ -4,12 +4,18 @@ RM = rm -fr
 # Project-specific settings
 DOCNAMES = thesis seminar_hasil seminar_proposal sidang_skripsi
 
-# Targets
+# Default Targets
 all: doc
 doc: pdf
 pdf: $(DOCNAMES:=.pdf)
 
-# Rules
+# Individual document targets
+thesis: thesis.pdf
+hasil: seminar_hasil.pdf
+proposal: seminar_proposal.pdf
+skripsi: sidang_skripsi.pdf
+
+# Rules for compiling .pdf from .tex
 %.pdf: %.tex
 	pdflatex -shell-escape $*.tex
 	pdflatex -shell-escape $*.tex  # Run twice to ensure references are updated
@@ -17,6 +23,7 @@ pdf: $(DOCNAMES:=.pdf)
 	pdflatex -shell-escape $*.tex  # Run a third time to incorporate bibliography
 	pdflatex -shell-escape $*.tex  # Run a fourth time to ensure all references are correct
 
+# Cleaning intermediate files
 mostlyclean:
 	$(RM) ./*.bbl
 
@@ -25,4 +32,5 @@ clean: mostlyclean
 	$(RM) ./*.dvi ./*.log ./*.aux ./*.blg ./*.toc ./*.lof ./*.lot ./*.out ./*.bcf ./*.run.xml ./*.synctex.gz ./*.pdf
 	$(RM) $(addprefix ./_minted-,$(DOCNAMES))
 
-.PHONY: all clean doc mostlyclean pdf
+# Add Phony targets to avoid filename conflicts
+.PHONY: all clean doc mostlyclean pdf thesis hasil proposal skripsi
