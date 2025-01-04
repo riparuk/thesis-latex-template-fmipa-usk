@@ -34,6 +34,8 @@
 % Daftar istilah yang mungkin perlu ditandai 
 \input{istilah}
 
+\pagestyle{fancy}
+
 % Awal bagian penulisan laporan
 \begin{document}
 %
@@ -100,6 +102,12 @@
 \listoffigures  % Daftar gambar
 \clearpage
 
+% \phantomsection
+% \listofappendices
+% \addcontentsline{toc}{chapter}{Daftar Lampiran}
+% \clearpage
+
+
 \enableboldchapterintoc
 
 \end{singlespace}
@@ -117,6 +125,13 @@
 \input{src/01-body/02-bab2} % Tinjauan Kepustakaan
 \input{src/01-body/03-bab3} % Metodologi Penelitian
 
+% Agar nomor halaman daftar pustaka halaman pertama berada di kanan bawah karena \printbibliography menggunakan plain
+\fancypagestyle{plain}{ %This is to change the \chapter functionality so the page number is in the bottom right corner.
+  \fancyhf{}
+  \fancyfoot[R]{\thepage}  % Nomor halaman di kanan bawah
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 % Alternatif manajemen daftar pustaka dengan \bibliography
 \begin{singlespace}
     \clearpage

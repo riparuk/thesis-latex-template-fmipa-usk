@@ -463,3 +463,21 @@
 % 
 % 
 \newcommand{\equ}{Persamaan}
+% 
+% 
+% Membuat daftar lampiran baru
+\newcommand{\listappendicesname}{DAFTAR LAMPIRAN}
+\newlistof{appendices}{loa}{\listappendicesname}
+\newcommand{\appendices}[1]{\addcontentsline{loa}{appendices}{#1}}
+
+% Membuat counter khusus untuk lampiran
+\newcounter{appendixcounter}
+\renewcommand{\theappendixcounter}{\arabic{appendixcounter}} % Gunakan format angka (1, 2, 3, ...)
+
+% Definisi ulang perintah addappendix
+\newcommand{\addappendix}[1]{
+    \stepcounter{appendixcounter} % Tambah nomor lampiran
+    \section*{Lampiran \theappendixcounter. #1} % Format: Lampiran 1. Judul
+    \addcontentsline{loa}{appendices}{Lampiran \theappendixcounter. #1} % Tambahkan ke daftar lampiran
+}
+\addtocontents{loa}{~\hfill \textit{Halaman}\par}
