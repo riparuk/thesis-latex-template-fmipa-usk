@@ -1,6 +1,9 @@
 @echo off
 set DOCNAMES=thesis seminar_hasil seminar_proposal sidang_skripsi
 
+REM Check if the first argument is 'clean'
+if "%1" == "clean" goto clean
+
 REM Compile all documents
 if "%1"=="all" goto build_all
 
@@ -34,10 +37,5 @@ exit /b
 REM Clean intermediate files
 :clean
 echo Cleaning files...
-del /Q *.bbl *.run.xml *.synctex.gz *.dvi *.log *.aux *.blg *.toc *.lof *.lot *.out *.bcf *.pdf
-for %%d in (%DOCNAMES%) do (
-    if exist _minted-%%d (
-        rmdir /S /Q _minted-%%d
-    )
-)
+del /Q *.bbl *.run.xml *.synctex.gz *.dvi *.log *.aux *.blg *.toc *.lof *.lot *.out *.bcf *.loa *.pdf
 exit /b
